@@ -5,7 +5,6 @@
         "declaration": false,
         "noImplicitAny": false,
         "removeComments": true,
-        "noLib": false,
-        "types": ["express"]
+        "noLib": false
     }
 }
