@@ -1,9 +1,14 @@
 //import * as express from 'express'    //didn't work, with full node_modules path
 import express = require('express');    //didn't work, "       "
 import * as _ from "lodash";
+import {EndpointsRouter} from './EndpointsRouter'
 
 var app = express();
 var router = express.Router();
+
+var end = new EndpointsRouter();
+app.use('/endpoints', end.router);
+app.use('/o', end.getRouter());
 router.get('/', function(req: express.Request, res: express.Response) {
     res.send('im the home page!!!');  
 });
