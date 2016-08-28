@@ -2,7 +2,10 @@
 import express = require('express');    //didn't work, "       "
 import * as _ from "lodash";
 import {EndpointsRouter} from './EndpointsRouter'
+import * as sqlize from "sequelize";
+import sql = require('sequelize');
 
+console.log(sqlize);
 var app = express();
 var router = express.Router();
 
