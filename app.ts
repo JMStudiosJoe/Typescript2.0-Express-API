@@ -3,11 +3,35 @@ import express = require('express');    //didn't work, "       "
 import * as _ from "lodash";
 import {EndpointsRouter} from './EndpointsRouter'
 import * as sqlize from "sequelize";
-import sql = require('sequelize');
 
-console.log(sqlize);
+
+//console.log(sqlize);
 var app = express();
 var router = express.Router();
+var sequelize = new sqlize('mylocal', 'root', 'development', {
+  host: 'development.ccyhitmusaue.us-west-2.rds.amazonaws.com',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
+
+  // SQLite only
+  storage: 'path/to/database.sqlite'
+});
+//console.log(sequelize);
+
+sequelize.authenticate().then(function(err) {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(function (err) {
+    console.log('Unable to connect to the database:', err);
+  });
+
+
+
 
 var end = new EndpointsRouter();
 app.use('/endpoints', end.router);
@@ -23,7 +47,7 @@ router.route('/api')
 
                     });
 app.use('/', router);
-app.listen(3000, function(){
-    console.log("Demo Express server listening on port %d", 3000);
+app.listen(8000, function(){
+    console.log("Demo Express server listening on port %d", 8000);
 });
 
