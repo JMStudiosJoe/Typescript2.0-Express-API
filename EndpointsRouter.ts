@@ -7,7 +7,7 @@ export class EndpointsRouter {
         
         this.router = express.Router();
         this.router.get('/endpoints', function(req:express.Request, res: express.Response) {
-            res.send("CONNECTED external module Endpoints Router");
+            res.send("in the endpoints");
         });
         return this;
     }

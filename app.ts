@@ -42,7 +42,7 @@ var end = new EndpointsRouter();
 app.use('/endpoints', end.router);
 app.use('/o', end.getRouter());
 router.get('/', function(req: express.Request, res: express.Response) {
-    res.send('im the home page!!!');  
+    res.send('you have pinged the home page yo!!!');  
 });
 
 router.route('/api')
@@ -54,6 +54,6 @@ router.route('/api')
 app.use(firstMiddleware);
 app.use('/', router);
 app.listen(8000, function(){
-    console.log("Demo Express server listening on port %d", 8000);
+    console.log("LISTENING AT PORT %d", 8000);
 });
 

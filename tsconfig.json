@@ -6,5 +6,9 @@
         "noImplicitAny": false,
         "removeComments": true,
         "noLib": false
-    }
+    },
+    "files": ["app.ts", "EndpointsRouter.ts"],
+    "exclude": [
+        "node_modules"
+    ]
 }
